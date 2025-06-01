@@ -1,0 +1,127 @@
+/* Text styles */
+.text {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+  
+  /* Responsive text classes */
+  @media (max-width: 575.98px) {
+    .text-sm-center { text-align: center !important; }
+    .text-sm-left { text-align: left !important; }
+    .text-sm-right { text-align: right !important; }
+    .text-sm-bold { font-weight: bold !important; }
+    .text-sm-italic { font-style: italic !important; }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .text-md-center { text-align: center !important; }
+    .text-md-left { text-align: left !important; }
+    .text-md-right { text-align: right !important; }
+    .text-md-bold { font-weight: bold !important; }
+    .text-md-italic { font-style: italic !important; }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .text-lg-center { text-align: center !important; }
+    .text-lg-left { text-align: left !important; }
+    .text-lg-right { text-align: right !important; }
+    .text-lg-bold { font-weight: bold !important; }
+    .text-lg-italic { font-style: italic !important; }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .text-xl-center { text-align: center !important; }
+    .text-xl-left { text-align: left !important; }
+    .text-xl-right { text-align: right !important; }
+    .text-xl-bold { font-weight: bold !important; }
+    .text-xl-italic { font-style: italic !important; }
+  }
+  
+  @media (min-width: 1200px) {
+    .text-xxl-center { text-align: center !important; }
+    .text-xxl-left { text-align: left !important; }
+    .text-xxl-right { text-align: right !important; }
+    .text-xxl-bold { font-weight: bold !important; }
+    .text-xxl-italic { font-style: italic !important; }
+  }
+  
+  /* Image styles */
+  .image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive image classes */
+  @media (max-width: 575.98px) {
+    .img-sm-fluid { width: 100% !important; height: auto !important; }
+    .img-sm-cover { object-fit: cover !important; }
+    .img-sm-contain { object-fit: contain !important; }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .img-md-fluid { width: 100% !important; height: auto !important; }
+    .img-md-cover { object-fit: cover !important; }
+    .img-md-contain { object-fit: contain !important; }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .img-lg-fluid { width: 100% !important; height: auto !important; }
+    .img-lg-cover { object-fit: cover !important; }
+    .img-lg-contain { object-fit: contain !important; }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .img-xl-fluid { width: 100% !important; height: auto !important; }
+    .img-xl-cover { object-fit: cover !important; }
+    .img-xl-contain { object-fit: contain !important; }
+  }
+  
+  @media (min-width: 1200px) {
+    .img-xxl-fluid { width: 100% !important; height: auto !important; }
+    .img-xxl-cover { object-fit: cover !important; }
+    .img-xxl-contain { object-fit: contain !important; }
+  }
+  
+  /* Line styles */
+  .line {
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  .line-horizontal {
+    width: 100%;
+    height: 1px;
+  }
+  
+  .line-vertical {
+    width: 1px;
+    height: 100%;
+  }
+  
+  /* Responsive line classes */
+  @media (max-width: 575.98px) {
+    .line-sm-hidden { display: none !important; }
+    .line-sm-visible { display: block !important; }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .line-md-hidden { display: none !important; }
+    .line-md-visible { display: block !important; }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .line-lg-hidden { display: none !important; }
+    .line-lg-visible { display: block !important; }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .line-xl-hidden { display: none !important; }
+    .line-xl-visible { display: block !important; }
+  }
+  
+  @media (min-width: 1200px) {
+    .line-xxl-hidden { display: none !important; }
+    .line-xxl-visible { display: block !important; }
+  }
