@@ -1,0 +1,30 @@
+.label {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0px;
+  color: #171F60;
+  opacity: 1;
+  text-align: left;
+  margin-bottom: 13px; /* Changed from 8px to 13px */
+  display: block;
+}
+  
+  .heading {
+    font: normal normal bold 20px/26px 'Space Grotesk';
+  }
+  
+  .responsiveRow {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .label {
+      font-size: 16px !important;
+      line-height: 22px !important;
+    }
+    
+    .heading {
+      font-size: 18px !important;
+      line-height: 24px !important;
+    }
+  }

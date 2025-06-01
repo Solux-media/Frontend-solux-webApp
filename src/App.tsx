@@ -1,4 +1,7 @@
-// import { useState } from 'react'
+import { useState } from 'react'
+import { Container } from 'react-bootstrap';
+import InputLabel from './components/InputLabel';
+import InputField from './components/InputField';
 // import reactLogo from './assets/react.svg'
 // import { Send, ArrowForward } from '@mui/icons-material';
 // import { ArrowForward as ArrowIcon } from '@mui/icons-material';
@@ -89,90 +92,169 @@ function App() {
 //   )
 
 
-  return (
-    <>
-      {/* Simple block with text */}
-      <Block
-        width={300}
-        height={200}
-        top={50}
-        left={50}
-        backgroundColor="#57BCE1"
-        borderRadius={20}
-        shadow="0 3px 30px rgba(0,0,0,0.16)"
-        responsive
-        sm="position-relative"
-        md="position-absolute"
-      >
-        <BlockText 
-          as="h2" 
-          style={{ padding: 20, color: 'white' }}
-          responsive
-          sm="left"
-          md="center"
-        >
-          Welcome
-        </BlockText>
-      </Block>
+  // return (
+  //   <>
+  //     {/* Simple block with text */}
+  //     <Block
+  //       width={300}
+  //       height={200}
+  //       top={50}
+  //       left={50}
+  //       backgroundColor="#57BCE1"
+  //       borderRadius={20}
+  //       shadow="0 3px 30px rgba(0,0,0,0.16)"
+  //       responsive
+  //       sm="position-relative"
+  //       md="position-absolute"
+  //     >
+  //       <BlockText 
+  //         as="h2" 
+  //         style={{ padding: 20, color: 'white' }}
+  //         responsive
+  //         sm="left"
+  //         md="center"
+  //       >
+  //         Welcome
+  //       </BlockText>
+  //     </Block>
 
-      {/* Complex block with multiple elements */}
-      <Block
-        width={{ xs: '100%', sm: '80%', md: 600 }}
-        height="auto"
-        top={300}
-        left="50%"
-        gradient={{ colors: ['#57BCE1', '#171F60'] }}
-        borderRadius={30}
-        padding={20}
-        responsive
-        sm="position-static"
-        md="position-absolute"
-        style={{ transform: 'translateX(-50%)' }}
-      >
-        <BlockImage 
-          src="/path/to/image.jpg" 
-          alt="Feature" 
-          height={200}
-          rounded
-          responsive
-          sm="fluid"
-          md="cover"
-          style={{ borderRadius: '20px 20px 0 0' }}
-        />
+  //     {/* Complex block with multiple elements */}
+  //     <Block
+  //       width={{ xs: '100%', sm: '80%', md: 600 }}
+  //       height="auto"
+  //       top={300}
+  //       left="50%"
+  //       gradient={{ colors: ['#57BCE1', '#171F60'] }}
+  //       borderRadius={30}
+  //       padding={20}
+  //       responsive
+  //       sm="position-static"
+  //       md="position-absolute"
+  //       style={{ transform: 'translateX(-50%)' }}
+  //     >
+  //       <BlockImage 
+  //         src="/path/to/image.jpg" 
+  //         alt="Feature" 
+  //         height={200}
+  //         rounded
+  //         responsive
+  //         sm="fluid"
+  //         md="cover"
+  //         style={{ borderRadius: '20px 20px 0 0' }}
+  //       />
         
-        <BlockLine 
-          color="rgba(255,255,255,0.5)" 
-          thickness="2px"
-          responsive
-          sm="hidden"
-          md="visible"
-          style={{ margin: '15px 0' }}
-        />
+  //       <BlockLine 
+  //         color="rgba(255,255,255,0.5)" 
+  //         thickness="2px"
+  //         responsive
+  //         sm="hidden"
+  //         md="visible"
+  //         style={{ margin: '15px 0' }}
+  //       />
         
-        <BlockText 
-          as="h3" 
-          style={{ color: 'white', marginBottom: 10 }}
-          responsive
-          sm="left"
-          md="center"
-        >
-          Featured Product
-        </BlockText>
+  //       <BlockText 
+  //         as="h3" 
+  //         style={{ color: 'white', marginBottom: 10 }}
+  //         responsive
+  //         sm="left"
+  //         md="center"
+  //       >
+  //         Featured Product
+  //       </BlockText>
         
-        <BlockText 
-          style={{ color: 'white', marginBottom: 15 }}
-          responsive
-          sm="left"
-          md="center"
-        >
-          Discover our latest innovation
-        </BlockText>
+  //       <BlockText 
+  //         style={{ color: 'white', marginBottom: 15 }}
+  //         responsive
+  //         sm="left"
+  //         md="center"
+  //       >
+  //         Discover our latest innovation
+  //       </BlockText>
         
-        <div className="d-flex justify-content-center">
-          <Button variant="light">Learn More</Button>
+  //       <div className="d-flex justify-content-center">
+  //         <Button variant="light">Learn More</Button>
+  //       </div>
+  //     </Block>
+  //   </>
+  // );
+
+
+const [selectedItems, setSelectedItems] = useState(['Item 1', 'Item 2']);
+  const [radioValue, setRadioValue] = useState('Option 1');
+  
+  const dropdownItems = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
+  
+  const handleSelect = (item) => {
+    if (selectedItems.includes(item)) {
+      setSelectedItems(selectedItems.filter(i => i !== item));
+    } else {
+      setSelectedItems([...selectedItems, item]);
+    }
+  };
+
+  return (
+    <Container>
+      {/* Single Input Field with Dropdown */}
+      <InputLabel text="Single Select" />
+      <InputField
+        placeholder="Select an option"
+        dropdownItems={dropdownItems}
+        onSelect={(item) => console.log('Selected:', item)}
+      />
+      
+      {/* Multiple Select with Chips */}
+      <InputLabel text="Multiple Select" />
+      <InputField
+        placeholder="Select options"
+        dropdownItems={dropdownItems}
+        multiple
+        selectedItems={selectedItems}
+        onSelect={handleSelect}
+      />
+      
+      {/* Radio Input */}
+      <InputLabel text="Radio Options" />
+      <InputField
+        placeholder="Select one option"
+        dropdownItems={dropdownItems}
+        type="radio"
+        selectedItems={[radioValue]}
+        onSelect={setRadioValue}
+      />
+      
+      {/* Inline Input Fields */}
+      <div style={{ display: 'flex', gap: '24px' }}>
+        <div style={{ flex: 1 }}>
+          <InputLabel text="First Name" />
+          <InputField placeholder="Enter first name" />
         </div>
-      </Block>
-    </>
+        <div style={{ flex: 1 }}>
+          <InputLabel text="Last Name" />
+          <InputField placeholder="Enter last name" />
+        </div>
+      </div>
+      
+      {/* Responsive Example */}
+      <InputLabel text="Responsive Field" isHeading />
+      <InputField
+        placeholder="This will adjust on mobile"
+        dropdownItems={dropdownItems}
+        responsive
+      />
+      
+      {/* Inline Input Fields with proper spacing
+      <div className={styles.inlineFieldsContainer}>
+        <div className={styles.inlineField}>
+          <InputLabel text="First Name" />
+          <InputField placeholder="Enter first name" />
+        </div>
+        <div className={styles.inlineField}>
+          <InputLabel text="Last Name" />
+          <InputField placeholder="Enter last name" />
+        </div>
+      </div> */}
+      
+    </Container>
   );
 };
 
