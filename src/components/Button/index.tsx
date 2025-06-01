@@ -15,6 +15,12 @@ interface ButtonProps {
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
   fullWidth?: boolean | { sm?: boolean; md?: boolean; lg?: boolean };
+  // New dynamic props
+  color?: string;
+  bgColor?: string;
+  top?: string | number;
+  left?: string | number;
+  customStyles?: React.CSSProperties;
 }
 
 const Button = ({
@@ -29,6 +35,12 @@ const Button = ({
   icon,
   iconPosition = 'left',
   fullWidth = false,
+  // New props
+  color,
+  bgColor,
+  top,
+  left,
+  customStyles = {},
   ...props
 }: ButtonProps) => {
   // Responsive width handling
@@ -44,6 +56,16 @@ const Button = ({
     return classes.join(' ');
   };
 
+  // Combine all styles
+  const combinedStyles = {
+    ...style,
+    ...customStyles,
+    ...(color ? { color } : {}),
+    ...(bgColor ? { backgroundColor: bgColor } : {}),
+    ...(top ? { top: typeof top === 'number' ? `${top}px` : top } : {}),
+    ...(left ? { left: typeof left === 'number' ? `${left}px` : left } : {}),
+  };
+
   const buttonClasses = [
     styles.button,
     styles[variant],
@@ -56,7 +78,7 @@ const Button = ({
     <Component 
       className={buttonClasses} 
       onClick={onClick} 
-      style={style} 
+      style={combinedStyles} 
       href={href}
       {...props}
     >
