@@ -1,4 +1,4 @@
 function Team() {
-  return <div>Home Page Test</div>;
+  return <div>Team Page Test</div>;
 }
 export default Team
