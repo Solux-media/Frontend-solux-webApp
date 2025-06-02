@@ -1,0 +1,120 @@
+/* Base heading styles */
+.heading {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  /* Variant styles - removed color declarations since we'll handle them dynamically */
+  .normal20 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  .bold25 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 32px;
+  }
+  
+  .normal18 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+  }
+  
+  .light18 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 23px;
+  }
+  
+  .center30 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+  }
+  
+  .bold40 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 51px;
+  }
+  
+  .medium40 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+  }
+  
+  .normal18Transparent {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    opacity: 0.7;
+  }
+  
+  /* Default colors for variants when color prop isn't provided */
+  .normal20,
+  .bold25,
+  .bold40,
+  .normal18Transparent {
+    color: #171F60;
+  }
+  
+  .normal18,
+  .light18,
+  .center30 {
+    color: #EAEBF0;
+  }
+  
+  .medium40 {
+    color: #6F81FF;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .bold40, .medium40 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    
+    .center30 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    
+    .bold25 {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bold40, .medium40 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    
+    .center30 {
+      font-size: 20px;
+      line-height: 26px;
+    }
+    
+    .normal20 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
