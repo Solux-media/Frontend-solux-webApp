@@ -1,13 +1,15 @@
+/* Base Styles */
 .navbar {
   padding: 1rem 2rem;
-  height: 80px; /* Adjust as needed */
+  height: 80px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .navContainer {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -19,6 +21,16 @@
   align-items: center;
   text-decoration: none;
   height: 26px;
+  left: 10%;
+  z-index: 1001;
+  
+}
+
+.logoIcon {
+  width: 26px;
+  height: 26px;
+  margin-right: 25px;
+  color: #FFC300 !important; 
 }
 
 .brandText {
@@ -26,6 +38,7 @@
   line-height: 1;
 }
 
+/* Desktop Navigation */
 .navItems {
   display: flex;
   gap: 1.5rem;
@@ -44,4 +57,198 @@
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+/* Mobile Menu Button (Hidden by default) */
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.mobileMenuIcon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #171F60;
+  position: relative;
+}
+
+.mobileMenuIcon::before,
+.mobileMenuIcon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #171F60;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuIcon::before {
+  top: -6px;
+}
+
+.mobileMenuIcon::after {
+  top: 6px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navItems {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .navItems {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .navItems.active {
+    transform: translateX(0);
+  }
+  
+  .navLink {
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+  
+  .navItem {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .brandText {
+    font-size: 1rem;
+  }
+  
+  .logoIcon {
+    margin-right: 15px;
+  }
+}
+
+/* Ensure SVG is properly sized in all browsers */
+.logoIcon {
+  flex-shrink: 0;
+}
+
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.mobileMenuIcon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #171F60;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuIcon::before,
+.mobileMenuIcon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #171F60;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuIcon::before {
+  top: -6px;
+}
+
+.mobileMenuIcon::after {
+  top: 6px;
+}
+
+/* Open state for mobile menu */
+.mobileMenuIcon.open {
+  background-color: transparent;
+}
+
+.mobileMenuIcon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.mobileMenuIcon.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  .navItems {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  .navItems.active {
+    transform: translateX(0);
+  }
+  
+  .navLink {
+    width: 100%;
+    justify-content: center;
+    height: auto;
+  }
+  
+  .navItem {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 0;
+  }
 }
