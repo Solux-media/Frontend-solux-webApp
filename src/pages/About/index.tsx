@@ -1,8 +1,9 @@
 import Heading from '../../components/Heading';
 import Block from '../../components/Block';
 import styles from './index.module.css';
+import { FaLightbulb, FaUsers } from 'react-icons/fa';
 
-const AboutPage = () => {
+const About = () => {
   return (
     <div className={styles.container}>
       {/* Main heading */}
@@ -64,10 +65,46 @@ const AboutPage = () => {
                 la notoriété, l'engagement et la croissance durable de nos clients.
              </p>
         </Heading>
+      </div>
+        <div className={styles.featureBlocksContainer}>
+        <div className={styles.featureBlock}>
+          <div className={styles.blockIcon}>
+            <FaLightbulb size={40} color="#171F60" />
+          </div>
+          <Heading variant="bold25" level="h3" className={styles.blockTitle}>
+            Notre Approche
+          </Heading>
+          <p className={styles.blockText}>
+            Une méthodologie centrée sur l'utilisateur qui combine créativité et technologie pour des solutions sur mesure et impactantes.
+          </p>
+          <ul className={styles.blockList}>
+            <li>Stratégie digitale sur mesure</li>
+            <li>Design centré utilisateur</li>
+            <li>Technologies innovantes</li>
+            <li>Approche agile</li>
+          </ul>
+        </div>
 
+        <div className={styles.featureBlock}>
+          <div className={styles.blockIcon}>
+            <FaUsers size={40} color="#171F60" />
+          </div>
+          <Heading variant="bold25" level="h3" className={styles.blockTitle}>
+            Nos Valeurs
+          </Heading>
+          <p className={styles.blockText}>
+            Des principes forts qui guident chacune de nos actions et collaborations.
+          </p>
+          <ul className={styles.blockList}>
+            <li>Transparence et honnêteté</li>
+            <li>Excellence créative</li>
+            <li>Collaboration étroite</li>
+            <li>Impact positif</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
-export default AboutPage;
+export default About;
