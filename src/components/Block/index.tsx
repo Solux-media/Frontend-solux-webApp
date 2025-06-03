@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.module.css';
 import classNames from 'classnames';
-import { Row, Col, Container } from 'react-bootstrap';
 
 const Block = ({
   // Positioning
