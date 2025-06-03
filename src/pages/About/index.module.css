@@ -55,6 +55,7 @@
   color: #171F60;
   font-size: clamp(14px, 1.5vw, 17px);
   line-height: 1.6;
+  padding-bottom: 2%;
 }
 
 /* Desktop/Tablet styles (show blocks) */
