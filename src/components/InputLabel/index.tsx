@@ -2,7 +2,14 @@ import React from 'react';
 import styles from './index.module.css';
 import { Row, Col } from 'react-bootstrap';
 
-const InputLabel = ({
+interface InputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+  text: string;
+  isHeading?: boolean;
+  className?: string;
+  responsive?: boolean;
+}
+
+const InputLabel: React.FC<InputLabelProps> = ({
   text,
   isHeading = false,
   className = '',

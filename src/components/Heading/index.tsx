@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './index.module.css';
+import type { JSX } from 'react/jsx-runtime';
 
 type HeadingVariant = 
   | 'normal20'

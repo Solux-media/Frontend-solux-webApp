@@ -3,9 +3,35 @@ import styles from './index.module.css';
 import { Row, Col, Form } from 'react-bootstrap';
 import DropdownMenu from '../DropdownMenu';
 
-const InputField = ({
+interface Position {
+  top?: number | string;
+  left?: number | string;
+  right?: number | string;
+  bottom?: number | string;
+}
+
+interface InputFieldProps {
+  type?: 'text' | 'textarea' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+  position?: Position;
+  width?: number | string;
+  height?: number | string;
+  selectedItems?: string[];
+  multiple?: boolean;
+  dropdownItems?: string[];
+  inline?: boolean;
+  className?: string;
+  onSelect?: (item: string) => void;
+  // Form.Control props we want to include
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  placeholder?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+}
+
+const InputField: React.FC<InputFieldProps> = ({
   type = 'text',
-  position,
+  position = {},
   width,
   height,
   selectedItems = [],
@@ -13,10 +39,11 @@ const InputField = ({
   dropdownItems = [],
   inline = false,
   className = '',
+  onSelect,
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     if (dropdownItems.length > 0) {
@@ -24,8 +51,8 @@ const InputField = ({
     }
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
@@ -62,8 +89,8 @@ const InputField = ({
             type={type}
             className={inputClasses}
             style={{
-              width,
-              height,
+              width: typeof width === 'number' ? `${width}px` : width,
+              height: typeof height === 'number' ? `${height}px` : height,
               ...position
             }}
             onClick={toggleDropdown}
@@ -79,7 +106,13 @@ const InputField = ({
         </div>
         
         {isOpen && dropdownItems.length > 0 && (
-          <DropdownMenu items={dropdownItems} width={width} />
+          <DropdownMenu 
+            items={dropdownItems} 
+            width={width} 
+            onSelect={onSelect}
+            type={multiple ? 'checkbox' : 'text'}
+            selectedItems={selectedItems}
+          />
         )}
       </Col>
     </Row>
