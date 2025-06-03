@@ -3,7 +3,6 @@
     position: absolute;
     box-sizing: border-box;
     transition: all 0.3s ease;
-    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Safari fix */
   }
   
   /* Responsive breakpoints - matches Bootstrap 5 */

@@ -1,10 +1,7 @@
 #root {
   max-width: auto;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   top: 0px;
   left: 0px;
-  /*background: transparent url('./assets/react.svg') 0% 0% no-repeat padding-box;*/
-  opacity: 1;
 }

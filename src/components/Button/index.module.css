@@ -2,8 +2,6 @@
 :root {
     --blue-sky: #171F60;
     --white: #FFFFFF;
-    --shadow: 0px 3px 30px rgba(0, 0, 0, 0.16);
-    --transition: all 0.3s ease;
   }
   
   /* Base button styles - Mobile First Approach */
@@ -32,9 +30,6 @@
     background: transparent;
     cursor: pointer;
     
-    /* Effects */
-    transition: var(--transition);
-    -webkit-tap-highlight-color: transparent;
     
     /* Cross-browser fixes */
     -webkit-appearance: none;
@@ -62,13 +57,11 @@
   /* Navbar active button styles - now responsive */
   .navActive {
     background: var(--white);
-    box-shadow: var(--shadow);
     border-radius: 15px;
-    opacity: 0.7;
     height: 50px !important;
-    top: 38px;
     width: auto;
     padding: 0 25px;
+    color: #171F60;
     
     /* Center content */
     display: inline-flex;

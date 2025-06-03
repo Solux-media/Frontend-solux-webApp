@@ -1,24 +1,20 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import FlareIcon from '@mui/icons-material/Flare';
 import styles from './index.module.css';
 import Button from '../../components/Button';
 import Heading from '../../components/Heading';
 
 const NavBar = () => {
   const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
+  
   const navItems = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'services', label: 'Services', path: '/services' },
     { id: 'team', label: 'Team', path: '/team' },
     { id: 'about', label: 'About', path: '/about' },
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ];
-
-  // Close mobile menu when a nav item is clicked
-  const handleNavClick = () => {
-    setIsMobileMenuOpen(false);
-  };
 
   // Check if item is active
   const isActive = (path: string) => {
@@ -29,46 +25,51 @@ const NavBar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
         {/* Logo and Brand */}
-        <NavLink to="/" className={styles.logoBrand} onClick={handleNavClick}>
-          <div className={styles.logo}>
-            <Heading variant="bold40" level="h1" color="#171F60">
-              Logo
-            </Heading>
-          </div>
+        <NavLink to="/" className={styles.logoBrand}>
+          <FlareIcon 
+            sx={{ 
+              fontSize: 26, // Matching the 26px height
+              color: '#FFC300',
+              marginRight: '25px' // Space between icon and text
+            }} 
+          />
           <Heading 
             variant="normal20" 
             level="span" 
             color="#171F60"
+            opacity="1"
+            align="left"
             className={styles.brandText}
+            sx={{
+              whiteSpace: 'nowrap' // Prevent text wrapping
+            }}
           >
             Solux Vision Media
           </Heading>
         </NavLink>
 
-        {/* Navigation Items */}
-        <div className={`${styles.navItems} ${isMobileMenuOpen ? styles.mobileActive : ''}`}>
+        {/* Navigation Items - Desktop */}
+        <div className={styles.navItems}>
           {navItems.map((item) => (
             <NavLink 
               key={item.id}
               to={item.path}
               className={styles.navLink}
-              onClick={handleNavClick}
             >
               <Button
                 variant="nav"
                 isNavActive={isActive(item.path)}
                 className={styles.navItem}
-                customStyles={{
-                  position: isMobileMenuOpen ? 'relative' : 'absolute',
-                  top: isMobileMenuOpen ? 'auto' : '50px',
-                  left: isMobileMenuOpen ? 'auto' : undefined,
+                sx={{
+                  height: '26px', // Matching the 26px height
+                  display: 'flex',
+                  alignItems: 'center'
                 }}
               >
                 <Heading 
                   variant="normal20" 
                   level="span" 
-                  color={isActive(item.path) ? "#4a6bff" : "#171F60"}
-                  className={styles.navText}
+                  color="#171F60"
                 >
                   {item.label}
                 </Heading>
@@ -76,17 +77,6 @@ const NavBar = () => {
             </NavLink>
           ))}
         </div>
-
-        {/* Mobile Menu Button */}
-        <Button 
-          variant="text" 
-          className={styles.mobileMenuButton}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span className={styles.menuIcon}>
-            {isMobileMenuOpen ? '✕' : '☰'}
-          </span>
-        </Button>
       </div>
     </nav>
   );
