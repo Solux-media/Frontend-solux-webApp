@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.module.css';
 import classNames from 'classnames';
-import { Button, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 // Text Component
 export const BlockText = ({ 
