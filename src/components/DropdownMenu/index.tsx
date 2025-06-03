@@ -2,9 +2,27 @@ import React from 'react';
 import styles from './index.module.css';
 import { Form } from 'react-bootstrap';
 
-const DropdownMenu = ({ items, width, onSelect, type = 'checkbox', selectedItems = [] }) => {
+interface DropdownMenuProps {
+  items: string[];
+  width?: string | number;
+  onSelect?: (item: string) => void;
+  type?: 'checkbox' | 'radio' | 'text';
+  selectedItems?: string[];
+}
+
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ 
+  items, 
+  width, 
+  onSelect, 
+  type = 'checkbox', 
+  selectedItems = [] 
+}) => {
+  const menuStyle: React.CSSProperties = {
+    width: typeof width === 'number' ? `${width}px` : width
+  };
+
   return (
-    <div className={styles.dropdownMenu} style={{ width }}>
+    <div className={styles.dropdownMenu} style={menuStyle}>
       {items.map((item, index) => (
         <div key={index} className={styles.dropdownItem}>
           {type === 'checkbox' ? (
@@ -13,7 +31,7 @@ const DropdownMenu = ({ items, width, onSelect, type = 'checkbox', selectedItems
               id={`dropdown-checkbox-${index}`}
               label={item}
               checked={selectedItems.includes(item)}
-              onChange={() => onSelect && onSelect(item)}
+              onChange={() => onSelect?.(item)}
             />
           ) : type === 'radio' ? (
             <Form.Check
@@ -22,12 +40,12 @@ const DropdownMenu = ({ items, width, onSelect, type = 'checkbox', selectedItems
               name="dropdown-radio"
               label={item}
               checked={selectedItems.includes(item)}
-              onChange={() => onSelect && onSelect(item)}
+              onChange={() => onSelect?.(item)}
             />
           ) : (
             <div 
               className={styles.dropdownTextItem}
-              onClick={() => onSelect && onSelect(item)}
+              onClick={() => onSelect?.(item)}
             >
               {item}
             </div>

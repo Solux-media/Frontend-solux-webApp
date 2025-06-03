@@ -1,15 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './index.module.css';
 import classNames from 'classnames';
-import { Image } from 'react-bootstrap';
+import { Image, type ImageProps } from 'react-bootstrap';
+
+// Types for responsive props
+interface ResponsiveProps {
+  responsive?: boolean;
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+  xxl?: string;
+}
 
 // Text Component
-export const BlockText = ({ 
+interface BlockTextProps extends React.HTMLAttributes<HTMLElement>, ResponsiveProps {
+  as?: React.ElementType;
+}
+
+export const BlockText: React.FC<BlockTextProps> = ({ 
   as: Component = 'p', 
   children, 
   className, 
-  responsive,
+  responsive = true,
   sm, md, lg, xl, xxl,
   style = {},
   ...props 
@@ -33,25 +46,14 @@ export const BlockText = ({
   );
 };
 
-BlockText.propTypes = {
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  responsive: PropTypes.bool,
-  sm: PropTypes.string,
-  md: PropTypes.string,
-  lg: PropTypes.string,
-  xl: PropTypes.string,
-  xxl: PropTypes.string,
-  style: PropTypes.object,
-};
-
-BlockText.defaultProps = {
-  responsive: true,
-};
-
 // Image Component
-export const BlockImage = ({ 
+interface BlockImageProps extends Omit<ImageProps, 'fluid'>, ResponsiveProps {
+  src: string;
+  alt: string;
+  circle?: boolean;
+}
+
+export const BlockImage: React.FC<BlockImageProps> = ({ 
   src, 
   alt, 
   width, 
@@ -59,10 +61,11 @@ export const BlockImage = ({
   rounded, 
   circle,
   thumbnail,
-  responsive,
+  responsive = true,
   sm, md, lg, xl, xxl,
   className, 
-  style = {} 
+  style = {},
+  ...props
 }) => {
   const responsiveClasses = responsive ? [
     sm && styles[`img-sm-${sm}`],
@@ -84,42 +87,29 @@ export const BlockImage = ({
       className={classNames(styles.image, ...responsiveClasses, className)}
       style={style}
       fluid
+      {...props}
     />
   );
 };
 
-BlockImage.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  rounded: PropTypes.bool,
-  circle: PropTypes.bool,
-  thumbnail: PropTypes.bool,
-  responsive: PropTypes.bool,
-  sm: PropTypes.string,
-  md: PropTypes.string,
-  lg: PropTypes.string,
-  xl: PropTypes.string,
-  xxl: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-BlockImage.defaultProps = {
-  responsive: true,
-};
-
 // Line Component
-export const BlockLine = ({ 
+interface BlockLineProps extends React.HTMLAttributes<HTMLDivElement>, ResponsiveProps {
+  direction?: 'horizontal' | 'vertical';
+  length?: string;
+  thickness?: string;
+  color?: string;
+}
+
+export const BlockLine: React.FC<BlockLineProps> = ({ 
   direction = 'horizontal', 
   length = '100%', 
   thickness = '1px', 
   color = '#000', 
-  responsive,
+  responsive = true,
   sm, md, lg, xl, xxl,
   className, 
-  style = {} 
+  style = {},
+  ...props
 }) => {
   const responsiveClasses = responsive ? [
     sm && styles[`line-sm-${sm}`],
@@ -143,25 +133,7 @@ export const BlockLine = ({
         backgroundColor: color,
         ...style,
       }}
+      {...props}
     />
   );
-};
-
-BlockLine.propTypes = {
-  direction: PropTypes.oneOf(['horizontal', 'vertical']),
-  length: PropTypes.string,
-  thickness: PropTypes.string,
-  color: PropTypes.string,
-  responsive: PropTypes.bool,
-  sm: PropTypes.string,
-  md: PropTypes.string,
-  lg: PropTypes.string,
-  xl: PropTypes.string,
-  xxl: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-BlockLine.defaultProps = {
-  responsive: true,
 };

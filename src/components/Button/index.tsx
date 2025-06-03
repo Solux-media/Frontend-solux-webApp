@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { type JSX } from 'react';
+import type { SxProps } from '@mui/material';
 import styles from './index.module.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'nav' | 'text';
@@ -7,6 +8,7 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   isNavActive?: boolean;
+  sx?: SxProps;
   className?: string;
   style?: React.CSSProperties;
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;

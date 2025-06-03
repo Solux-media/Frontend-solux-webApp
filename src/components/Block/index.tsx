@@ -1,9 +1,58 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './index.module.css';
 import classNames from 'classnames';
 
-const Block = ({
+interface GradientProps {
+  direction?: string;
+  colors: string[];
+}
+
+interface BlockProps {
+  // Positioning
+  top?: number | string;
+  left?: number | string;
+  right?: number | string;
+  bottom?: number | string;
+  // Dimensions
+  width?: number | string;
+  height?: number | string;
+  minWidth?: number | string;
+  minHeight?: number | string;
+  // Background
+  backgroundColor?: string;
+  backgroundImage?: string;
+  gradient?: GradientProps;
+  // Borders
+  borderRadius?: number | string;
+  border?: string;
+  borderColor?: string;
+  borderWidth?: number | string;
+  // Effects
+  shadow?: string;
+  opacity?: number;
+  rotate?: number;
+  // Layout
+  display?: React.CSSProperties['display'];
+  flexDirection?: React.CSSProperties['flexDirection'];
+  justifyContent?: React.CSSProperties['justifyContent'];
+  alignItems?: React.CSSProperties['alignItems'];
+  padding?: number | string;
+  margin?: number | string;
+  // Responsive
+  responsive?: boolean;
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+  xxl?: string;
+  // Content
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
+
+const Block: React.FC<BlockProps> = ({
   // Positioning
   top,
   left,
@@ -35,7 +84,7 @@ const Block = ({
   padding,
   margin,
   // Responsive
-  responsive,
+  responsive = true,
   sm,
   md,
   lg,
@@ -48,7 +97,7 @@ const Block = ({
   onClick,
 }) => {
   // Combine all styles
-  const blockStyle = {
+  const blockStyle: React.CSSProperties = {
     // Positioning
     top: typeof top === 'number' ? `${top}px` : top,
     left: typeof left === 'number' ? `${left}px` : left,
@@ -107,58 +156,6 @@ const Block = ({
       {children}
     </div>
   );
-};
-
-Block.propTypes = {
-  // Positioning
-  top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // Dimensions
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  minWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  minHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // Background
-  backgroundColor: PropTypes.string,
-  backgroundImage: PropTypes.string,
-  gradient: PropTypes.shape({
-    direction: PropTypes.string,
-    colors: PropTypes.arrayOf(PropTypes.string),
-  }),
-  // Borders
-  borderRadius: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  border: PropTypes.string,
-  borderColor: PropTypes.string,
-  borderWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // Effects
-  shadow: PropTypes.string,
-  opacity: PropTypes.number,
-  rotate: PropTypes.number,
-  // Layout
-  display: PropTypes.string,
-  flexDirection: PropTypes.string,
-  justifyContent: PropTypes.string,
-  alignItems: PropTypes.string,
-  padding: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  margin: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // Responsive
-  responsive: PropTypes.bool,
-  sm: PropTypes.string,
-  md: PropTypes.string,
-  lg: PropTypes.string,
-  xl: PropTypes.string,
-  xxl: PropTypes.string,
-  // Content
-  children: PropTypes.node,
-  className: PropTypes.string,
-  style: PropTypes.object,
-  onClick: PropTypes.func,
-};
-
-Block.defaultProps = {
-  responsive: true,
 };
 
 export default Block;

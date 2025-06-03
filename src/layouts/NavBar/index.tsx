@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import FlareIcon from '@mui/icons-material/Flare';
 import styles from './index.module.css';
@@ -37,12 +36,8 @@ const NavBar = () => {
             variant="normal20" 
             level="span" 
             color="#171F60"
-            opacity="1"
             align="left"
             className={styles.brandText}
-            sx={{
-              whiteSpace: 'nowrap' // Prevent text wrapping
-            }}
           >
             Solux Vision Media
           </Heading>
