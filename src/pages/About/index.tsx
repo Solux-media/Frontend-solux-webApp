@@ -20,11 +20,12 @@ const AboutPage = () => {
         level="p"
         className={styles.subtitle}
       >
-        Découvrez qui nous sommes, ce qui nous anime et comment nous travaillons pour<br/>
+        Découvrez qui nous sommes, ce qui nous anime et comment nous travaillons pour
         transformer vos idées en expériences mémorables.
       </Heading>
 
-        {/* Content blocks */}
+      {/* Content blocks container */}
+      <div className={styles.blocksContainer}>
         <Block className={styles.block1}>
           {/* Content for block 1 */}
         </Block>
@@ -40,34 +41,37 @@ const AboutPage = () => {
         <Block className={styles.block4}>
           {/* Content for block 4 */}
         </Block>
+      </div>
 
-      {/* Main content area (left side) */}
+      {/* Main content area */}
       <div className={styles.contentArea}>
         <Heading variant="bold40" level="h1" className={styles.contentTitle}>
           Notre histoire
         </Heading>
-        <Heading variant="normal18" level="p" className={styles.contentText}>
-            <p>
-              Solux Vision Media est une agence créative et technologique, née de la<br/>
-              conviction que chaque idée mérite d'être mise en lumière. Notre société est<br/>
-              officiellement enregistrée en République Démocratique du Congo, avec un<br/>
-              siège opérationnel à Helsinki. 
-            </p>
-            <p>
-              Nous bénéficions d'une équipe répartie entre la Russie, la Pologne, le Gabon et<br/>
-              la RDC, ce qui enrichit notre approche par des perspectives multiculturelles et <br/>
-              une grande flexibilité. 
-            </p>
-             <p>
-                Ancrés par la conviction que chaque idée mérite d'être mise en lumière, nous<br/>
-                allions créativité, innovation technologique et rigueur stratégique pour renforcer<br/>
-                la notoriété, l'engagement et la croissance durable de nos clients.
-             </p>
-        </Heading>
+        <div className={styles.contentText}>
+          <p>
+            Solux Vision Media est une agence créative et technologique, née de la
+            conviction que chaque idée mérite d'être mise en lumière. Notre société est
+            officiellement enregistrée en République Démocratique du Congo, avec un
+            siège opérationnel à Helsinki.
+          </p>
+          <p>
+            Nous bénéficions d'une équipe répartie entre la Russie, la Pologne, le Gabon et
+            la RDC, ce qui enrichit notre approche par des perspectives multiculturelles et
+            une grande flexibilité.
+          </p>
+          <p>
+            Ancrés par la conviction que chaque idée mérite d'être mise en lumière, nous
+            allions créativité, innovation technologique et rigueur stratégique pour renforcer
+            la notoriété, l'engagement et la croissance durable de nos clients.
+          </p>
+        </div>
+
 
       </div>
     </div>
   );
 };
+
 
 export default AboutPage;
