@@ -76,165 +76,20 @@
     font-size: clamp(14px, 3vw, 17px);
     line-height: 1.6;
     text-align: left;
-  padding-bottom: 2%;
-}
-
-.whyUs{
-  align-content: center;
-  
 }
 
 
 /* Desktop/Tablet styles (show blocks in grid) */
 
 @media (min-width: 768px) {
-  .block1, .block2, .block3, .block4 {
-    display: block;
-    overflow-x: hidden;
-  }
-  
-  .block1 {
-    top: 39%;
-    left: 54%;
-    width: 18vw;
-    height: 36.3vh;
-  }
-  
-  .block2 {
-    top: 44%;
-    left: 73%;
-    width: 18vw;
-    height: 26vh;
-  }
-  
-  .block3 {
-    top: 77%;
-    left: 54%;
-    width: 18vw;
-    height: 26vh;
-  }
-  
-  .block4 {
-    top: 72%;
-    left: 73%;
-    width: 18vw;
-    height: 35vh;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 767px) {
-  .mainTitle {
-    position: static;
-    margin: 20px 5%;
-    white-space: normal;
-  }
-  
-  .subtitle {
-    position: static;
-    width: 90%;
-    margin: 0 5% 30px;
-  }
-  
-  .contentArea {
-    position: static;
-    width: 90%;
-    margin: 0 5%;
-    padding-top: 20px;
-  }
-}
-
-/* Feature Blocks Container */
-.featureBlocksContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1600px;
-  padding: 0 20px;
-}
-
-/* Individual Feature Block */
-.featureBlock {
-  background: #FFFFFF;
-  box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.16);
-  border-radius: 30px;
-  padding: 50px;
-  width: 100%;
-  max-width: 750px;
-  box-sizing: border-box;
-}
-
-.blockIcon {
-  margin-bottom: 25px;
-  color: #171F60;
-}
-
-.blockTitle {
-  font: normal normal bold 25px/32px Space Grotesk;
-  color: #171F60;
-  margin-bottom: 20px;
-}
-
-.blockText {
-  font: normal normal normal 20px/26px Space Grotesk;
-  color: #171F60;
-  margin-bottom: 30px;
-}
-
-.blockList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.blockList li {
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 15px;
-  font: normal normal normal 18px/26px Space Grotesk;
-  color: #171F60;
-}
-
-.blockList li:before {
-  content: "•";
-  color: #171F60;
-  font-size: 24px;
-  position: absolute;
-  left: 0;
-  top: -3px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-  .featureBlock {
-    padding: 40px;
-  }
-}
-
-@media (min-width: 992px) {
-  .featureBlocksContainer {
-    justify-content: space-between;
-  }
-  .featureBlock {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 768px) {
-  .featureBlocksContainer {
-    gap: 30px;
-  }
-  .featureBlock {
-    padding: 30px;
-  }
-  .blockTitle {
-    font-size: 22px;
-    line-height: 28px;
-  }
-  .blockText {
-    font-size: 18px;
-    line-height: 24px;
-  }
+    .blocksContainer {
+        display: flex;
+    }
+    .block1,
+    .block2,
+    .block3,
+    .block4 {
+        min-height: 200px;
+        flex: 1 1 18vw;
+    }
 }
