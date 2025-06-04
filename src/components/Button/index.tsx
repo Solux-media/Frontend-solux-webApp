@@ -11,7 +11,7 @@ interface ButtonProps {
   sx?: SxProps;
   className?: string;
   style?: React.CSSProperties;
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  as?: keyof JSX.IntrinsicElements;
   href?: string;
   variant?: ButtonVariant;
   icon?: React.ReactNode;

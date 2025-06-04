@@ -2,7 +2,7 @@ import Heading from '../../components/Heading';
 import Block from '../../components/Block';
 import styles from './index.module.css';
 
-const About = () => {
+const AboutPage = () => {
   return (
     <div className={styles.container}>
       {/* Main heading */}
@@ -20,11 +20,12 @@ const About = () => {
         level="p"
         className={styles.subtitle}
       >
-        Découvrez qui nous sommes, ce qui nous anime et comment nous travaillons pour<br/>
+        Découvrez qui nous sommes, ce qui nous anime et comment nous travaillons pour
         transformer vos idées en expériences mémorables.
       </Heading>
 
-        {/* Content blocks */}
+      {/* Content blocks container */}
+      <div className={styles.blocksContainer}>
         <Block className={styles.block1}>
           {/* Content for block 1 */}
         </Block>
@@ -40,8 +41,9 @@ const About = () => {
         <Block className={styles.block4}>
           {/* Content for block 4 */}
         </Block>
+      </div>
 
-      {/* Main content area (left side) */}
+      {/* Main content area */}
       <div className={styles.contentArea}>
         <Heading variant="bold40" level="h1" className={styles.contentTitle}>
           Notre histoire
@@ -106,4 +108,5 @@ const About = () => {
   );
 };
 
-export default About;
+
+export default AboutPage;
