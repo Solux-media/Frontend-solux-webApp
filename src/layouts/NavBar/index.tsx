@@ -5,9 +5,11 @@ import styles from './index.module.css';
 import Button from '../../components/Button';
 import Heading from '../../components/Heading';
 
+import { useState } from 'react';
 const NavBar = () => {
   const location = useLocation();
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navItems = [
     { id: 'home', label: 'Home', path: '/' },
     { id: 'services', label: 'Services', path: '/services' },
@@ -19,6 +21,10 @@ const NavBar = () => {
   // Check if item is active
   const isActive = (path: string) => {
     return location.pathname === path;
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -63,6 +69,7 @@ const NavBar = () => {
               key={item.id}
               to={item.path}
               className={styles.navLink}
+              onClick={() => setMenuOpen(false)} // Close menu on nav item click
             >
               <Button
                 variant="nav"
@@ -84,5 +91,6 @@ const NavBar = () => {
     </nav>
   );
 };
+
 
 export default NavBar;
