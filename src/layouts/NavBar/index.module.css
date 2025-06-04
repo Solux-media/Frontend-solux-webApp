@@ -34,71 +34,29 @@
 }
 
 .brandText {
-    white-space: nowrap;
-    line-height: 1;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 /* Desktop Navigation */
 .navItems {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    height: 26px;
-}
-
-
-/* Mobile styles */
-
-@media (max-width: 767px) {
-    .menuButton {
-        display: flex;
-    }
-    .navItems {
-        flex-direction: column;
-        /* background-color: white; */
-        position: absolute;
-        top: 80px;
-        right: 0;
-        width: 200px;
-        /* border: 1px solid #ccc; */
-        border-radius: 8px;
-        padding: 10px 0;
-        /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        z-index: 1200;
-    }
-    .navItemsOpen {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-    .navLink {
-        padding: 10px 20px;
-        width: 100%;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
-    .navItem {
-        width: 100%;
-        justify-content: flex-start;
-        white-space: nowrap;
-    }
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  height: 26px;
 }
 
 .navLink {
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    align-items: center;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .navItem {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Mobile Menu Button (Hidden by default) */
