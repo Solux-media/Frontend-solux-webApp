@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+// import  SoluxLogo  from '../../layouts/ui/icons/flare_24dp_1F1F1F_FILL0_wght200_GRAD0_opsz24.svg';
 import FlareIcon from '@mui/icons-material/Flare';
 import styles from './index.module.css';
 import Button from '../../components/Button';
@@ -25,11 +26,18 @@ const NavBar = () => {
       <div className={styles.navContainer}>
         {/* Logo and Brand */}
         <NavLink to="/" className={styles.logoBrand}>
-          <FlareIcon 
+          {/* <img 
+            src={SoluxLogo} 
+            alt="solux vision media logo"
+            className={styles.logoIcon}
+            aria-hidden="true"
+            style={{color: '#FFC300' }} 
+          /> */}
+           <FlareIcon 
             sx={{ 
-              fontSize: 26, // Matching the 26px height
+              fontSize: 26,
               color: '#FFC300',
-              marginRight: '25px' // Space between icon and text
+              marginRight: '25px' 
             }} 
           />
           <Heading 
@@ -43,6 +51,11 @@ const NavBar = () => {
           </Heading>
         </NavLink>
 
+        {/* Mobile Menu Button (Hamburger) */}
+        <button className={styles.mobileMenuButton} aria-label="Open menu">
+          <span className={styles.mobileMenuIcon}></span>
+        </button>
+
         {/* Navigation Items - Desktop */}
         <div className={styles.navItems}>
           {navItems.map((item) => (
@@ -55,11 +68,6 @@ const NavBar = () => {
                 variant="nav"
                 isNavActive={isActive(item.path)}
                 className={styles.navItem}
-                sx={{
-                  height: '26px', // Matching the 26px height
-                  display: 'flex',
-                  alignItems: 'center'
-                }}
               >
                 <Heading 
                   variant="normal20" 
