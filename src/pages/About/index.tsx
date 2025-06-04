@@ -1,7 +1,7 @@
 import Heading from '../../components/Heading';
 import Block from '../../components/Block';
 import styles from './index.module.css';
-import { FaLightbulb, FaUsers } from 'react-icons/fa';
+// import { FaLightbulb, FaUsers } from 'react-icons/fa';
 
 const About = () => {
   return (
