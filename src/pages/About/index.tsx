@@ -66,7 +66,7 @@ const About = () => {
              </p>
         </Heading>
       </div>
-        <div className={styles.featureBlocksContainer}>
+        {/* <div className={styles.featureBlocksContainer}>
         <div className={styles.featureBlock}>
           <div className={styles.blockIcon}>
             <FaLightbulb size={40} color="#171F60" />
@@ -102,7 +102,7 @@ const About = () => {
             <li>Impact positif</li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
